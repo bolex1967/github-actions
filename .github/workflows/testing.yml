@@ -1,11 +1,16 @@
 name: Test App
-on: push
+on:
+  push:
+    branches:
+      - main # Гілка, яку ми хочемо тестувати
+
 jobs:
-  runs-on: windows-latest
-  steps:
-    - name: Get repository code
-      # run
-      uses: actions/checkout@v3
-    - name: Install dependencies
-      run: npm install
-      # run: npm ci
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+        # run
+      - name: Install dependencies
+        run: npm install
+        # run: npm ci
